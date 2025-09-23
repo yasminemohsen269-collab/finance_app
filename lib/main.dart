@@ -1,5 +1,6 @@
 import 'package:financeapp/utils/app_color.dart';
 import 'package:financeapp/utils/app_theme.dart';
+import 'package:financeapp/widgets/custom_text_field.dart';
 import 'package:financeapp/widgets/primary_button.dart';
 import 'package:financeapp/widgets/primary_outlined_button_widget.dart';
 import 'package:flutter/material.dart';
@@ -47,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  bool isPassword = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,6 +72,26 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 330.w,
               height: 5.h,
               onPressed: () {},
+            ),
+            SizedBox(height: 20),
+            CustomTextField(hintText: "Enter your email"),
+            SizedBox(height: 20),
+            CustomTextField(
+              hintText: "Password",
+              suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    isPassword = !isPassword;
+                  });
+                },
+                icon: Icon(
+                  isPassword
+                      ? Icons.remove_red_eye_outlined
+                      : Icons.visibility_off_outlined,
+                  color: Color(0xff6A707C),
+                ),
+              ),
+              isPassword: isPassword,
             ),
           ],
         ),
