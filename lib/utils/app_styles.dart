@@ -23,4 +23,10 @@ class AppStyles {
     fontSize: 16.sp,
     color: AppColor.blackColor,
   );
+  static TextStyle bkack15boldStyle = TextStyle(
+    fontFamily: AppFonts.mainFont,
+    fontWeight: FontWeight.bold,
+    fontSize: 15.sp,
+    color: AppColor.blackBlue,
+  );
 }

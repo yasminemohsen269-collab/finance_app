@@ -1,5 +1,6 @@
 import 'package:financeapp/utils/app_color.dart';
 import 'package:financeapp/utils/app_theme.dart';
+import 'package:financeapp/views/on_boarding_view.dart';
 import 'package:financeapp/widgets/custom_text_field.dart';
 import 'package:financeapp/widgets/primary_button.dart';
 import 'package:financeapp/widgets/primary_outlined_button_widget.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: MyHomePage(title: "title"),
+      child: OnBoardingView(),
     );
   }
 }
