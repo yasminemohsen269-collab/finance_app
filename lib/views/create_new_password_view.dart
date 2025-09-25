@@ -10,21 +10,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class ForgetPasswordView extends StatefulWidget {
-  const ForgetPasswordView({super.key});
+class CreateNewPasswordView extends StatefulWidget {
+  const CreateNewPasswordView({super.key});
 
   @override
-  State<ForgetPasswordView> createState() => _ForgetPasswordViewState();
+  State<CreateNewPasswordView> createState() => _CreateNewPasswordViewState();
 }
 
-class _ForgetPasswordViewState extends State<ForgetPasswordView> {
+class _CreateNewPasswordViewState extends State<CreateNewPasswordView> {
   final formKey = GlobalKey<FormState>();
-  late TextEditingController emailController;
+
+  late TextEditingController passwordController;
 
   @override
   void initState() {
     super.initState();
-    emailController = TextEditingController();
+
+    passwordController = TextEditingController();
   }
 
   @override
@@ -45,10 +47,10 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                   const HightSpace(height: 28),
 
                   SizedBox(
-                    width: 234.w,
+                    width: 292.w,
 
                     child: Text(
-                      "Forgot Password?",
+                      "Create new password",
                       style: AppStyles.praimaryHeadLineStyle,
                     ),
                   ),
@@ -57,20 +59,30 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                     width: 331.w,
 
                     child: Text(
-                      "Don't worry! It occurs. Please enter the email address linked with your account.",
+                      "Your new password must be unique from those previously used.",
                       style: AppStyles.subTitleStyles,
                     ),
                   ),
 
                   const HightSpace(height: 32),
                   CustomTextField(
-                    controller: emailController,
-                    hintText: "Enter Your email",
+                    controller: passwordController,
+                    hintText: "Enter Your password",
+                    isPassword: true,
+
                     validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Enter Your email";
+                      if (value == null || value.isEmpty) {
+                        return "Password cannot be empty";
+                      } else if (value.length < 6) {
+                        return "Password must be at least 6 characters";
                       }
+                      return null;
                     },
+                  ),
+                  const HightSpace(height: 15),
+                  CustomTextField(
+                    hintText: "Confirm Password",
+                    isPassword: true,
                   ),
                   const HightSpace(height: 30),
                   PrimaryButton(
@@ -80,31 +92,13 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                       if (formKey.currentState!.validate()) {
                         GoRouter.of(
                           context,
-                        ).push(AppRoutes.CreateNewPasswordView);
+                        ).push(AppRoutes.passwordChangesView);
                       }
                     },
-                    text: "Send code",
+                    text: "Reset Password",
                   ),
 
                   const HightSpace(height: 361),
-                  Center(
-                    child: RichText(
-                      text: TextSpan(
-                        text: "Remember Password? ",
-                        style: AppStyles.bkack15boldStyle.copyWith(
-                          color: AppColor.praimaryColor,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: "Login",
-                            style: AppStyles.bkack15boldStyle.copyWith(
-                              color: AppColor.blackBlue,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
