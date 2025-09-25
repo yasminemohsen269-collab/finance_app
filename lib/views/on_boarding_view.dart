@@ -18,12 +18,12 @@ class OnBoardingView extends StatelessWidget {
         child: Column(
           children: [
             Image.asset(
-              AppAssets.logo,
+              AppAssets.visa,
               width: double.infinity,
-              height: 570.h,
+              height: 438.h,
               fit: BoxFit.fitWidth,
             ),
-            const HightSpace(height: 21),
+            const HightSpace(height: 50),
             PrimaryButton(
               width: 331.w,
               height: 56.h,
