@@ -1,4 +1,3 @@
-import 'package:financeapp/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -19,11 +18,7 @@ class CustomIconButton extends StatelessWidget {
           border: Border.all(color: Color(0xffE8ECF4)),
         ),
         child: Center(
-          child: SvgPicture.asset(
-            AppAssets.facebookSVGIcon,
-            width: 12.w,
-            height: 24,
-          ),
+          child: SvgPicture.asset(iconPath, width: 12.w, height: 24),
         ),
       ),
     );

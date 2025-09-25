@@ -11,14 +11,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _RegisterViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _RegisterViewState extends State<RegisterView> {
   final formKey = GlobalKey<FormState>();
   late TextEditingController emailController;
   late TextEditingController passwordController;
@@ -48,13 +48,16 @@ class _LoginViewState extends State<LoginView> {
                   const HightSpace(height: 28),
 
                   SizedBox(
-                    width: 280.w,
+                    width: 331.w,
                     child: Text(
-                      "Welcome back! Again!",
+                      "Hello! Register to get started",
                       style: AppStyles.praimaryHeadLineStyle,
                     ),
                   ),
                   const HightSpace(height: 32),
+
+                  CustomTextField(hintText: "Username"),
+                  const HightSpace(height: 15),
                   CustomTextField(
                     controller: emailController,
                     hintText: "Enter Your email",
@@ -69,7 +72,6 @@ class _LoginViewState extends State<LoginView> {
                   CustomTextField(
                     controller: passwordController,
                     hintText: "Enter Your password",
-                    isPassword: true,
                     suffixIcon: Icon(
                       Icons.remove_red_eye,
                       color: AppColor.greyColor,
@@ -102,26 +104,26 @@ class _LoginViewState extends State<LoginView> {
                     height: 56.h,
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        GoRouter.of(context).push(AppRoutes.registerView);
+                        GoRouter.of(context).push(AppRoutes.forgetPasswordView);
                       }
                     },
-                    text: "Login",
+                    text: "Register",
                   ),
                   const HightSpace(height: 35),
-                  const CustomOrLoginWidget(text: "Or Login with"),
+                  const CustomOrLoginWidget(text: "Or Register with"),
                   const HightSpace(height: 22),
                   const CustomSocialLoginIcon(),
-                  const HightSpace(height: 155),
+                  const HightSpace(height: 100),
                   Center(
                     child: RichText(
                       text: TextSpan(
-                        text: "Don’t have an account?",
+                        text: "Already have an account?",
                         style: AppStyles.bkack15boldStyle.copyWith(
                           color: AppColor.praimaryColor,
                         ),
                         children: [
                           TextSpan(
-                            text: " Register Now",
+                            text: " login Now",
                             style: AppStyles.bkack15boldStyle.copyWith(
                               color: AppColor.blackBlue,
                             ),

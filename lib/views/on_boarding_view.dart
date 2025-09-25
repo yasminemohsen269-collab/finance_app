@@ -28,7 +28,7 @@ class OnBoardingView extends StatelessWidget {
               width: 331.w,
               height: 56.h,
               onPressed: () {
-                GoRouter.of(context).pushNamed(AppRoutes.loginView);
+                GoRouter.of(context).push(AppRoutes.loginView);
               },
               text: "Login",
             ),
