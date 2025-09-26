@@ -2,29 +2,28 @@ import 'package:financeapp/routing/app_routes.dart';
 import 'package:financeapp/utils/app_color.dart';
 import 'package:financeapp/utils/app_styles.dart';
 import 'package:financeapp/widgets/back_button_widget.dart';
-
-import 'package:financeapp/widgets/custom_text_field.dart';
 import 'package:financeapp/widgets/primary_button.dart';
 import 'package:financeapp/widgets/spacing_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
-class ForgetPasswordView extends StatefulWidget {
-  const ForgetPasswordView({super.key});
+class VerifyOtpView extends StatefulWidget {
+  const VerifyOtpView({super.key});
 
   @override
-  State<ForgetPasswordView> createState() => _ForgetPasswordViewState();
+  State<VerifyOtpView> createState() => _VerifyOtpViewState();
 }
 
-class _ForgetPasswordViewState extends State<ForgetPasswordView> {
+class _VerifyOtpViewState extends State<VerifyOtpView> {
   final formKey = GlobalKey<FormState>();
-  late TextEditingController emailController;
+  late TextEditingController PinCodeController;
 
   @override
   void initState() {
     super.initState();
-    emailController = TextEditingController();
+    PinCodeController = TextEditingController();
   }
 
   @override
@@ -40,36 +39,50 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const HightSpace(height: 12),
-
                   const BackButtonWidget(),
                   const HightSpace(height: 28),
-
                   SizedBox(
-                    width: 234.w,
-
+                    width: 216.w,
                     child: Text(
-                      "Forgot Password?",
+                      "OTP Verification",
                       style: AppStyles.praimaryHeadLineStyle,
                     ),
                   ),
                   const HightSpace(height: 10),
                   SizedBox(
                     width: 331.w,
-
                     child: Text(
-                      "Don't worry! It occurs. Please enter the email address linked with your account.",
+                      "Enter the verification code we just sent on your email address.",
                       style: AppStyles.subTitleStyles,
                     ),
                   ),
 
                   const HightSpace(height: 32),
-                  CustomTextField(
-                    controller: emailController,
-                    hintText: "Enter Your email",
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Enter Your email";
-                      }
+                  PinCodeTextField(
+                    appContext: context,
+                    length: 4,
+                    obscureText: false,
+                    controller: PinCodeController,
+                    enableActiveFill: true,
+                    keyboardType: TextInputType.number,
+                    textStyle: AppStyles.praimaryHeadLineStyle.copyWith(
+                      fontSize: 22.sp,
+                    ),
+                    pinTheme: PinTheme(
+                      shape: PinCodeFieldShape.box,
+                      borderRadius: BorderRadius.circular(8.r),
+                      fieldHeight: 60.h,
+                      fieldWidth: 70.w,
+                      selectedColor: AppColor.praimaryColor,
+                      selectedFillColor: AppColor.whiteColor,
+                      activeColor: AppColor.praimaryColor,
+                      activeFillColor: Colors.white,
+                      inactiveColor: AppColor.greyColor,
+                      inactiveFillColor: AppColor.greyColor.withOpacity(0.1),
+                      borderWidth: 1,
+                    ),
+                    onCompleted: (value) {
+                      GoRouter.of(context).push(AppRoutes.forgetPasswordView);
                     },
                   ),
                   const HightSpace(height: 30),
@@ -78,23 +91,25 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                     height: 56.h,
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        GoRouter.of(context).push(AppRoutes.verifyOtpView);
+                        GoRouter.of(
+                          context,
+                        ).push(AppRoutes.CreateNewPasswordView);
                       }
                     },
-                    text: "Send code",
+                    text: "Verify",
                   ),
 
-                  const HightSpace(height: 361),
+                  const HightSpace(height: 340),
                   Center(
                     child: RichText(
                       text: TextSpan(
-                        text: "Remember Password? ",
+                        text: "Didn’t received code?",
                         style: AppStyles.bkack15boldStyle.copyWith(
                           color: AppColor.praimaryColor,
                         ),
                         children: [
                           TextSpan(
-                            text: "Login",
+                            text: " Resend",
                             style: AppStyles.bkack15boldStyle.copyWith(
                               color: AppColor.blackBlue,
                             ),

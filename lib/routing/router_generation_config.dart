@@ -5,6 +5,7 @@ import 'package:financeapp/views/login_view.dart';
 import 'package:financeapp/views/on_boarding_view.dart';
 import 'package:financeapp/views/password_changes_view.dart';
 import 'package:financeapp/views/register_view.dart';
+import 'package:financeapp/views/verify_otp_view.dart';
 import 'package:go_router/go_router.dart';
 
 class RouterGenerationConfig {
@@ -40,6 +41,11 @@ class RouterGenerationConfig {
         //    name: AppRoutes.registerView,
         path: AppRoutes.passwordChangesView,
         builder: (context, state) => const PasswordChangesView(),
+      ),
+      GoRoute(
+        //    name: AppRoutes.registerView,
+        path: AppRoutes.verifyOtpView,
+        builder: (context, state) => const VerifyOtpView(),
       ),
     ],
   );
