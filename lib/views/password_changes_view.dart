@@ -50,7 +50,7 @@ class _PasswordChangesViewState extends State<PasswordChangesView> {
                   width: 331.w,
                   height: 56.h,
                   onPressed: () {
-                    GoRouter.of(context).push(AppRoutes.loginView);
+                    GoRouter.of(context).push(AppRoutes.mainView);
                   },
                   text: "Back to Login",
                 ),

@@ -102,7 +102,7 @@ class _LoginViewState extends State<LoginView> {
                     height: 56.h,
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        GoRouter.of(context).push(AppRoutes.registerView);
+                        GoRouter.of(context).push(AppRoutes.mainView);
                       }
                     },
                     text: "Login",

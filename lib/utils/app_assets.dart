@@ -3,5 +3,12 @@ class AppAssets {
   static const String facebookSVGIcon = "assets/icons/facebook_ic.svg";
   static const String googleSVGIcon = "assets/icons/google_ic.svg";
   static const String appleSVGIcon = "assets/icons/cib_apple.svg";
+  static const String homeIcon = "assets/icons/Home.svg";
+  static const String profileIcon = "assets/icons/Profile.svg";
+  static const String chartIcon = "assets/icons/Chart.svg";
   static const String visa = "assets/images/visa.jpg";
+  static const String layer1 = "assets/images/layer1.png";
+  static const String layer2 = "assets/images/layerTwo.png";
+
+  static const String profilePhoto = "assets/images/profile.png";
 }
