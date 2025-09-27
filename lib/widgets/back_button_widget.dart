@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class BackButtonWidget extends StatelessWidget {
-  const BackButtonWidget({super.key});
-
+  const BackButtonWidget({super.key, required this.icon});
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -22,7 +22,7 @@ class BackButtonWidget extends StatelessWidget {
             onTap: () {
               GoRouter.of(context).pop();
             },
-            child: Icon(Icons.arrow_back, color: AppColor.praimaryColor),
+            child: Icon(icon, color: AppColor.praimaryColor),
           ),
         ),
       ),

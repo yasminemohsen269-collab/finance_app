@@ -11,4 +11,9 @@ class AppAssets {
   static const String layer2 = "assets/images/layerTwo.png";
 
   static const String profilePhoto = "assets/images/profile.png";
+
+  static const String sendIcon = "assets/icons/Send.svg";
+  static const String walletIcon = "assets/icons/Wallet.svg";
+  static const String friendsIcon = "assets/icons/3-Friends.svg";
+  static const String editIcon = "assets/icons/edit.svg";
 }

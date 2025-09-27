@@ -44,7 +44,7 @@ class _LoginViewState extends State<LoginView> {
                 children: [
                   const HightSpace(height: 12),
 
-                  const BackButtonWidget(),
+                  const BackButtonWidget(icon: Icons.arrow_back),
                   const HightSpace(height: 28),
 
                   SizedBox(

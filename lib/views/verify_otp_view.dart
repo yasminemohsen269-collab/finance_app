@@ -39,7 +39,7 @@ class _VerifyOtpViewState extends State<VerifyOtpView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const HightSpace(height: 12),
-                  const BackButtonWidget(),
+                  const BackButtonWidget(icon: Icons.arrow_back),
                   const HightSpace(height: 28),
                   SizedBox(
                     width: 216.w,

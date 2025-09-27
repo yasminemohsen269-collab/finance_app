@@ -6,15 +6,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CardItemWidget extends StatelessWidget {
-  const CardItemWidget({super.key});
-
+  const CardItemWidget({
+    super.key,
+    required this.hight,
+    required this.width,
+    this.visaText,
+  });
+  final double hight;
+  final double width;
+  final String? visaText;
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          height: 263.h,
-          width: 207.w,
+          height: hight,
+          width: width,
           decoration: BoxDecoration(
             color: AppColor.praimaryColor,
             borderRadius: BorderRadius.circular(16.r),
@@ -52,11 +59,12 @@ class CardItemWidget extends StatelessWidget {
                 "X_Card",
                 style: AppStyles.bkack15boldStyle.copyWith(color: Colors.white),
               ),
-              HightSpace(height: 57),
+              HightSpace(height: 40),
               Text(
                 "Balance",
                 style: AppStyles.bkack15boldStyle.copyWith(color: Colors.white),
               ),
+              HightSpace(height: 10),
               Text(
                 "23000 EG",
                 style: AppStyles.bkack15boldStyle.copyWith(color: Colors.white),
@@ -65,6 +73,19 @@ class CardItemWidget extends StatelessWidget {
           ),
         ),
         Positioned(
+          top: 26.h,
+          right: 24.w,
+          child: visaText != null
+              ? Text(
+                  visaText!,
+                  style: AppStyles.bkack15boldStyle.copyWith(
+                    color: Colors.white,
+                  ),
+                )
+              : const SizedBox.shrink(), // في حالة null ما يعرضش حاجة
+        ),
+
+        Positioned(
           bottom: 26.h,
           right: 24.w,
           child: Text(
@@ -72,6 +93,7 @@ class CardItemWidget extends StatelessWidget {
             style: AppStyles.bkack15boldStyle.copyWith(color: Colors.white),
           ),
         ),
+        HightSpace(height: 30),
         Positioned(
           bottom: 26.h,
           left: 24.w,

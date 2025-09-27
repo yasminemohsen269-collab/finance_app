@@ -1,6 +1,8 @@
 import 'package:financeapp/utils/app_assets.dart';
 import 'package:financeapp/utils/app_color.dart';
 import 'package:financeapp/views/home_view.dart';
+import 'package:financeapp/views/my_cart_view.dart';
+import 'package:financeapp/views/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -26,16 +28,8 @@ class _MainViewState extends State<MainView> {
       height: double.infinity,
       color: Colors.purple,
     ),
-    Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Colors.blue,
-    ),
-    Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Colors.brown,
-    ),
+    MyCartView(),
+    ProfileView(),
   ];
   @override
   Widget build(BuildContext context) {

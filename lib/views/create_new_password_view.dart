@@ -1,5 +1,4 @@
 import 'package:financeapp/routing/app_routes.dart';
-import 'package:financeapp/utils/app_color.dart';
 import 'package:financeapp/utils/app_styles.dart';
 import 'package:financeapp/widgets/back_button_widget.dart';
 
@@ -43,7 +42,7 @@ class _CreateNewPasswordViewState extends State<CreateNewPasswordView> {
                 children: [
                   const HightSpace(height: 12),
 
-                  const BackButtonWidget(),
+                  const BackButtonWidget(icon: Icons.arrow_back),
                   const HightSpace(height: 28),
 
                   SizedBox(
