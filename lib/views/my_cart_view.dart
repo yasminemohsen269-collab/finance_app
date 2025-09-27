@@ -1,7 +1,4 @@
-import 'package:financeapp/utils/app_styles.dart';
-import 'package:financeapp/widgets/back_button_widget.dart';
 import 'package:financeapp/widgets/card_item_widget.dart';
-import 'package:financeapp/widgets/carousal_widget.dart';
 import 'package:financeapp/widgets/custom_name_of_view.dart';
 import 'package:financeapp/widgets/spacing_widgets.dart';
 import 'package:flutter/material.dart';

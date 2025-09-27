@@ -3,6 +3,7 @@ import 'package:financeapp/utils/app_color.dart';
 import 'package:financeapp/views/home_view.dart';
 import 'package:financeapp/views/my_cart_view.dart';
 import 'package:financeapp/views/profile_view.dart';
+import 'package:financeapp/views/statistic_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -18,11 +19,7 @@ class _MainViewState extends State<MainView> {
   int currentInex = 0;
   List<Widget> screens = [
     HomeView(),
-    Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Colors.pinkAccent,
-    ),
+    StatisticView(),
     Container(
       width: double.infinity,
       height: double.infinity,
