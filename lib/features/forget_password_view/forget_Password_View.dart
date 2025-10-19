@@ -1,4 +1,5 @@
 import 'package:financeapp/core/routing/app_routes.dart';
+import 'package:financeapp/core/utils/app_color.dart';
 import 'package:financeapp/core/utils/app_styles.dart';
 import 'package:financeapp/core/widgets/back_button_widget.dart';
 
@@ -9,23 +10,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class CreateNewPasswordView extends StatefulWidget {
-  const CreateNewPasswordView({super.key});
+class ForgetPasswordView extends StatefulWidget {
+  const ForgetPasswordView({super.key});
 
   @override
-  State<CreateNewPasswordView> createState() => _CreateNewPasswordViewState();
+  State<ForgetPasswordView> createState() => _ForgetPasswordViewState();
 }
 
-class _CreateNewPasswordViewState extends State<CreateNewPasswordView> {
+class _ForgetPasswordViewState extends State<ForgetPasswordView> {
   final formKey = GlobalKey<FormState>();
-
-  late TextEditingController passwordController;
+  late TextEditingController emailController;
 
   @override
   void initState() {
     super.initState();
-
-    passwordController = TextEditingController();
+    emailController = TextEditingController();
   }
 
   @override
@@ -46,10 +45,10 @@ class _CreateNewPasswordViewState extends State<CreateNewPasswordView> {
                   const HightSpace(height: 28),
 
                   SizedBox(
-                    width: 292.w,
+                    width: 234.w,
 
                     child: Text(
-                      "Create new password",
+                      "Forgot Password?",
                       style: AppStyles.praimaryHeadLineStyle,
                     ),
                   ),
@@ -58,30 +57,20 @@ class _CreateNewPasswordViewState extends State<CreateNewPasswordView> {
                     width: 331.w,
 
                     child: Text(
-                      "Your new password must be unique from those previously used.",
+                      "Don't worry! It occurs. Please enter the email address linked with your account.",
                       style: AppStyles.subTitleStyles,
                     ),
                   ),
 
                   const HightSpace(height: 32),
                   CustomTextField(
-                    controller: passwordController,
-                    hintText: "Enter Your password",
-                    isPassword: true,
-
+                    controller: emailController,
+                    hintText: "Enter Your email",
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Password cannot be empty";
-                      } else if (value.length < 6) {
-                        return "Password must be at least 6 characters";
+                      if (value!.isEmpty) {
+                        return "Enter Your email";
                       }
-                      return null;
                     },
-                  ),
-                  const HightSpace(height: 15),
-                  CustomTextField(
-                    hintText: "Confirm Password",
-                    isPassword: true,
                   ),
                   const HightSpace(height: 30),
                   PrimaryButton(
@@ -89,15 +78,31 @@ class _CreateNewPasswordViewState extends State<CreateNewPasswordView> {
                     height: 56.h,
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
-                        GoRouter.of(
-                          context,
-                        ).push(AppRoutes.passwordChangesView);
+                        GoRouter.of(context).push(AppRoutes.verifyOtpView);
                       }
                     },
-                    text: "Reset Password",
+                    text: "Send code",
                   ),
 
                   const HightSpace(height: 361),
+                  Center(
+                    child: RichText(
+                      text: TextSpan(
+                        text: "Remember Password? ",
+                        style: AppStyles.bkack15boldStyle.copyWith(
+                          color: AppColor.praimaryColor,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "Login",
+                            style: AppStyles.bkack15boldStyle.copyWith(
+                              color: AppColor.blackBlue,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

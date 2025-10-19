@@ -1,7 +1,7 @@
-import 'package:financeapp/routing/app_routes.dart';
-import 'package:financeapp/utils/app_styles.dart';
-import 'package:financeapp/widgets/primary_button.dart';
-import 'package:financeapp/widgets/spacing_widgets.dart';
+import 'package:financeapp/core/routing/app_routes.dart';
+import 'package:financeapp/core/utils/app_styles.dart';
+import 'package:financeapp/core/widgets/primary_button.dart';
+import 'package:financeapp/core/widgets/spacing_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';

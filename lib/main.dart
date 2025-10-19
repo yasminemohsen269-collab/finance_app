@@ -1,5 +1,5 @@
-import 'package:financeapp/routing/router_generation_config.dart';
-import 'package:financeapp/utils/app_theme.dart';
+import 'package:financeapp/core/routing/router_generation_config.dart';
+import 'package:financeapp/core/utils/app_theme.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
